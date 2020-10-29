@@ -18,7 +18,6 @@ pipeline {
     }
     stage("redeploy"){
       steps {
-        DOCKER
         sh 'docker pull 192.168.194.130:5000/halloween-docker:v1'
         sh 'docker run -d -p 8080:80 192.168.194.130:5000/halloween-docker:v1'
       }
