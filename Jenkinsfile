@@ -18,9 +18,9 @@ pipeline {
     }
     stage("redeploy"){
       steps {
-        sh 'docker rmi 192.168.194.130:5000/halloween-docker:latest'
+        sh 'docker rm web-fest'
         sh 'docker pull 192.168.194.130:5000/halloween-docker:latest'
-        sh 'docker restart web-fest'
+        sh 'docker run --name web-fest -d -p 8080:80 192.168.194.130:5000/halloween-docker:latest'
       }
     }
   }
