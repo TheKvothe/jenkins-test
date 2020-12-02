@@ -1,7 +1,6 @@
 pipeline {
   agent any
   environment{
-    DOCKER_HOST = '192.168.194.130'
   }
   stages {
     stage('Build Docker Image') {
